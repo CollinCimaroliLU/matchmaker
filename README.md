@@ -1,8 +1,7 @@
 # matchmaker
 
 # Author
-
-# Collin Cimaroli
+Collin Cimaroli
 
 # Credits
 
