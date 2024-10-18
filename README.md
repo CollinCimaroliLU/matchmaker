@@ -1,7 +1,7 @@
 # matchmaker
 
-#Author
-Collin Cimaroli
+**#Author**
+#Collin Cimaroli
 
-#Credits
+**#Credits**
 
