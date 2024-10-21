@@ -2,14 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="index.css">
         <title>Matchmaker</title>
     </head>
 
     <body>
-        <h1>Matchmaker</h1>
-        <p>Introduction...</p>
+        <h1>Collin's Matchmaker</h1>
+        <p>Want to see if we're a match?  Respond to each of the statements to find out.  Respond with 1 of the 5 options for each statement.  The options are strongly disagree, disagree, neither 
+            agree nor disagree, agree, and strongly disagree.  Each response determines our compatibility for that statement, and at the end our total compatibility is given.</p>
+        <hr>
 
-        <label>Counrty music is the best music genre.</label></br>
+        <label>Country music is the best music genre.</label></br>
 
         <select id="q1">
             <option value="5">Strongly Agree</option>
@@ -17,9 +20,9 @@
             <option value="3">Neither Agree Nor Disagree</option>
             <option value="2">Disagree</option>
             <option value="1">Strongly Disagree</option>
-        </select></br>
+        </select></br></br>
 
-        <label>Mushrooms are absolutely disgusting.</label></br>
+        <label>Mushrooms are delicious.</label></br>
 
         <select id="q2">
             <option value="5">Strongly Agree</option>
@@ -27,7 +30,7 @@
             <option value="3">Neither Agree Nor Disagree</option>
             <option value="2">Disagree</option>
             <option value="1">Strongly Disagree</option>
-        </select></br>
+        </select></br></br>
 
         <label>Fall is the best season of the year.</label></br>
 
@@ -37,7 +40,7 @@
             <option value="3">Neither Agree Nor Disagree</option>
             <option value="2">Disagree</option>
             <option value="1">Strongly Disagree</option>
-        </select></br>
+        </select></br></br>
 
         <label>Eating healthy foods and staying active is important.</label></br>
 
@@ -47,9 +50,9 @@
             <option value="3">Neither Agree Nor Disagree</option>
             <option value="2">Disagree</option>
             <option value="1">Strongly Disagree</option>
-        </select></br>
+        </select></br></br>
 
-        <label>Respect, loyalty, and chemistry are the most important aspects of a relationship.</label></br>
+        <label>Respect and loyalty are the most important aspects of a relationship.</label></br>
 
         <select id="q5">
             <option value="5">Strongly Agree</option>
@@ -57,11 +60,83 @@
             <option value="3">Neither Agree Nor Disagree</option>
             <option value="2">Disagree</option>
             <option value="1">Strongly Disagree</option>
-        </select></br>
+        </select></br></br>
 
+        <hr>
+
+        </br>
+        <button onclick="calculateCompatibility()">Calculate our Total Compatibility</button>
+        <p id="compatibility"></p>
 
     <script>
-        console.log("Matchmaker...")
+        console.log("Matchmaker...");
+
+        function calculateCompatibility() {
+            console.log("calculateCompatibility()");
+
+            const DESIRED_RESPONSE = [
+                3,
+                1,
+                5,
+                5,
+                5,
+
+            ]
+
+            const MAX_SCORE = 25;
+
+            let question1Response = document.getElementById("q1").selectedOptions[0].value;
+            let question2Response = document.getElementById("q2").selectedOptions[0].value;
+            let question3Response = document.getElementById("q3").selectedOptions[0].value;
+            let question4Response = document.getElementById("q4").selectedOptions[0].value;
+            let question5Response = document.getElementById("q5").selectedOptions[0].value;
+
+            console.log("Question 1 Answer:");
+            console.log(document.getElementById("q1").selectedOptions[0].text);
+            console.log(document.getElementById("q1").selectedOptions[0].value);
+            console.log(question1Response);
+
+            console.log("Question 2 Answer:");
+            console.log(document.getElementById("q2").selectedOptions[0].text);
+            console.log(document.getElementById("q2").selectedOptions[0].value);
+            console.log(question2Response);
+
+            console.log("Question 3 Answer:");
+            console.log(document.getElementById("q3").selectedOptions[0].text);
+            console.log(document.getElementById("q3").selectedOptions[0].value);
+            console.log(question3Response);
+
+            console.log("Question 4 Answer:");
+            console.log(document.getElementById("q4").selectedOptions[0].text);
+            console.log(document.getElementById("q4").selectedOptions[0].value);
+            console.log(question4Response);
+
+            console.log("Question 5 Answer:");
+            console.log(document.getElementById("q5").selectedOptions[0].text);
+            console.log(document.getElementById("q5").selectedOptions[0].value);
+            console.log(question5Response);
+
+            let question1Compatibility = 5 - Math.abs(question1Response - DESIRED_RESPONSE[0]);
+            let question2Compatibility = 5 - Math.abs(question2Response - DESIRED_RESPONSE[1]);
+            let question3Compatibility = 5 - Math.abs(question3Response - DESIRED_RESPONSE[2]);
+            let question4Compatibility = 5 - Math.abs(question4Response - DESIRED_RESPONSE[3]);
+            let question5Compatibility = 5 - Math.abs(question5Response - DESIRED_RESPONSE[4]);
+
+            console.log("c1="+question1Compatibility);
+            console.log("c2="+question2Compatibility);
+            console.log("c3="+question3Compatibility);
+            console.log("c4="+question4Compatibility);
+            console.log("c5="+question5Compatibility);
+
+            let totalCompatibility = question1Compatibility + question2Compatibility + question3Compatibility + question4Compatibility + question5Compatibility;
+
+            totalCompatibility *= 100 / MAX_SCORE;
+            totalCompatibility = Math.round(totalCompatibility);
+            console.log("totalCompatibility="+ totalCompatibility);
+
+
+            document.getElementById("compatibility").innerHTML = "Our total compatability is: " +totalCompatibility;
+        }
 
     </script>
     </body>
