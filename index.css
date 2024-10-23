@@ -1,10 +1,10 @@
 body {
     background-color: pink;
     padding: 100px;
-    border-style: solid;
-    border: 5px;
-    border-color: black;
 }
+main {
+    border-style: solid;
+    
 
 h1 {
     font-size: 40px;
