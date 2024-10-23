@@ -2,6 +2,7 @@ body {
     background-color: pink;
     padding: 100px;
     border: 5px;
+    border-color: black;
 }
 
 h1 {
