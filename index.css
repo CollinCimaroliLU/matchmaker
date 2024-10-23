@@ -1,6 +1,7 @@
 body {
     background-color: pink;
     padding: 100px;
+    border-style: solid;
     border: 5px;
     border-color: black;
 }
