@@ -139,13 +139,13 @@
 
             document.getElementById("compatibility").innerHTML = "Our total compatability is: " +totalCompatibility;
 
-           if (calculateCompatibility >= 90) {
+           if (totalCompatibility >= 90) {
             alert("We're a match! Want to get hitched?");
-        } else if (calculateCompatibility >= 70) {
+        } else if (totalCompatibility >= 70) {
             alert("You seem cool, lets start with a coffee date?");
-        } else if (calculateCompatibility >= 50) {
+        } else if (totalCompatibility >= 50) {
             alert("Lets be friends...");
-        } else if (calculateCompatibility < 50) {
+        } else if (totalCompatibility < 50) {
             alert("You're really not my type... See ya never!");
         }
         
