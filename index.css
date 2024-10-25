@@ -9,6 +9,8 @@ main {
 
 h1 {
     font-size: 40px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
 }
 
 h1, p, h2 {
